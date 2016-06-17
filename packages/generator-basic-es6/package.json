@@ -14,6 +14,7 @@
     "generators/app"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "lodash": "^4.13.1",

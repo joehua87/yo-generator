@@ -4,9 +4,9 @@
   "main": "lib",
   "description": "",
   "scripts": {
-    "build": "cross-env NODE_ENV=production babel ./src --out-dir ./lib",
+    "build": "cross-env NODE_ENV=production babel --ignore='__test__/*' --out-dir ./lib ./src",
     "prepublish": "npm run build",
-    "test": "mocha --require babel-register --require babel-polyfill --ignore='__test__/*' 'src/**/__test__/**/*.test.js'"
+    "test": "mocha --require babel-register --require babel-polyfill 'src/**/__test__/**/*.test.js'"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
