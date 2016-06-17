@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "bootstrap": "cross-env lerna bootstrap",
+    "build": "cross-env lerna run build",
+    "publish": "cross-env npm run build && lerna publish",
+    "lint": "cross-env eslint packages/*/generators",
+    "test": "cross-env npm run lint && lerna run test"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "cross-env": "^1.0.8",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-mocha": "^3.0.0",
+    "lerna": "2.0.0-beta.20"
+  }
+}
