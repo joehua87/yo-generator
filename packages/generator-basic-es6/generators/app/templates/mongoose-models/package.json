@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel --ignore='__test__/*' --out-dir ./lib src",
     "prepublish": "npm run build",
-    "test": "mocha --require babel-register --require babel-polyfill 'src/**/__test__/**/*.test.js'"
+    "test": "mocha --require babel-register --require babel-polyfill 'src/**/__test__/**/*.test.js'",
+    "generate": "plop --plopfile generators/index.js"
   },
   "dependencies": {
     "mongoose-mask": "^0.1.0",
@@ -23,7 +24,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "cross-env": "^1.0.8",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "plop": "^1.5.0"
   },
   "author": "<%= authorName %>",
   "license": "MIT"

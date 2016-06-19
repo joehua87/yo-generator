@@ -83,6 +83,13 @@ class Generator extends Base {
       this.destinationPath(`${this.appName}/src`),
     )
 
+    if (this.template === 'mongoose-models') {
+      this.fs.copyTpl(
+        this.templatePath(`${this.template}/generators`),
+        this.destinationPath(`${this.appName}/generators`),
+      )
+    }
+
     if (this.template === 'koa-api') {
       this.fs.copyTpl(
         this.templatePath(`${this.template}/config.ejs`),
