@@ -47,8 +47,7 @@ class Generator extends Base {
         type: 'confirm',
         name: 'installNpm',
         message: 'Do you want to install npm?',
-        default: false,
-        store: true
+        default: true,
       }
     ]).then((answers) => {
       this.template = answers.template
