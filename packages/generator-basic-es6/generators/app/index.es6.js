@@ -105,7 +105,7 @@ class Generator extends Base {
       this.fs.copyTpl(
         this.templatePath(`${this.template}/webpack.config.js`),
         this.destinationPath(`${this.appName}/webpack.config.js`),
-        { appName: this.appName, },
+        { appName: this.appName },
       )
 
       this.fs.copyTpl(
