@@ -23,6 +23,10 @@ class Generator extends Base {
           value: 'react-view',
           checked: false
         }, {
+          name: 'Koa Api',
+          value: 'koa-api',
+          checked: false
+        }, {
           name: 'Mongoose Models',
           value: 'mongoose-models',
           checked: false
@@ -34,6 +38,12 @@ class Generator extends Base {
         default: 'your-name',
         store: true
       }, {
+        type: 'input',
+        name: 'moduleName',
+        message: 'Module Name?',
+        when: (answers) => answers.template === 'koa-api',
+        store: false
+      }, {
         type: 'confirm',
         name: 'installNpm',
         message: 'Do you want to install npm?',
@@ -41,8 +51,9 @@ class Generator extends Base {
         store: true
       }
     ]).then((answers) => {
-      this.authorName = answers.authorName
       this.template = answers.template
+      this.authorName = answers.authorName
+      this.moduleName = answers.moduleName
       this.installNpm = answers.installNpm
     })
   }
@@ -72,6 +83,18 @@ class Generator extends Base {
       this.templatePath(`${this.template}/src`),
       this.destinationPath(`${this.appName}/src`)
     )
+
+    if (this.template === 'koa-api') {
+      console.log(this.moduleName)
+      this.fs.copyTpl(
+        this.templatePath(`${this.template}/config.ejs`),
+        this.destinationPath(`${this.appName}/src/config.js`),
+        {
+          moduleName: this.moduleName,
+          DB_HOST: 'DB_HOST',
+        },
+      )
+    }
 
     if (this.template === 'react-view') {
       this.fs.copyTpl(
