@@ -66,7 +66,7 @@ class Generator extends Base {
   writing() {
     this.fs.copyTpl(
       this.templatePath(`${this.template}/.babelrc`),
-      this.destinationPath(`${this.appName}/.babelrc`)
+      this.destinationPath(`${this.appName}/.babelrc`),
     )
 
     this.fs.copyTpl(
@@ -80,11 +80,10 @@ class Generator extends Base {
 
     this.fs.copyTpl(
       this.templatePath(`${this.template}/src`),
-      this.destinationPath(`${this.appName}/src`)
+      this.destinationPath(`${this.appName}/src`),
     )
 
     if (this.template === 'koa-api') {
-      console.log(this.moduleName)
       this.fs.copyTpl(
         this.templatePath(`${this.template}/config.ejs`),
         this.destinationPath(`${this.appName}/src/config.js`),
@@ -98,7 +97,7 @@ class Generator extends Base {
     if (this.template === 'react-view') {
       this.fs.copyTpl(
         this.templatePath(`${this.template}/server`),
-        this.destinationPath(`${this.appName}/server`)
+        this.destinationPath(`${this.appName}/server`),
       )
 
       this.fs.copyTpl(
@@ -109,12 +108,12 @@ class Generator extends Base {
 
       this.fs.copyTpl(
         this.templatePath(`${this.template}/testHelper.js`),
-        this.destinationPath(`${this.appName}/testHelper.js`)
+        this.destinationPath(`${this.appName}/testHelper.js`),
       )
 
       this.fs.copyTpl(
         this.templatePath(`${this.template}/webpack.preview.config.js`),
-        this.destinationPath(`${this.appName}/webpack.preview.config.js`)
+        this.destinationPath(`${this.appName}/webpack.preview.config.js`),
       )
     }
   }
