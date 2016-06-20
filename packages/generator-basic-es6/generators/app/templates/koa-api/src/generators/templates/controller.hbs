@@ -1,0 +1,6 @@
+import {{ properCase modelName }}Repository from './repository'
+import { createKoaController } from 'mongoose-mask'
+
+const repository = new {{ properCase modelName }}Repository()
+
+export default createKoaController(repository)

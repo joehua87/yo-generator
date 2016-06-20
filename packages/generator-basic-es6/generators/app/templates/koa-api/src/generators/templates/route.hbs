@@ -1,0 +1,7 @@
+import controller from './controller'
+
+import { registerKoaRoutes } from 'mongoose-mask'
+
+export default function registerRoute(router) {
+  registerKoaRoutes(router, controller, '{{ dashCase modelName }}')
+}

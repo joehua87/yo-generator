@@ -81,6 +81,7 @@ class Generator extends Base {
     this.fs.copyTpl(
       this.templatePath(`${this.template}/src`),
       this.destinationPath(`${this.appName}/src`),
+      { moduleName: this.moduleName },
     )
 
     if (this.template === 'mongoose-models') {
