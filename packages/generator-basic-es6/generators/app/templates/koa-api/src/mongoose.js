@@ -1,4 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 import { db } from './config'
 
-export default mongoose.createConnection(db.host)
+const connection = mongoose.createConnection(db.host)
+connection.Schema = Schema
+
+export default connection
