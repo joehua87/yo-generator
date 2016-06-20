@@ -15,7 +15,7 @@ module.exports = (plop) => {
     }],
     actions: [{
       type: 'add',
-      path: '../src/{{dashCase modelName}}.model.js',
+      path: '../src/models/{{dashCase modelName}}.model.js',
       templateFile: `${__dirname}/templates/template.model.hbs`
     }, {
       type: 'modify',

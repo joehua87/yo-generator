@@ -1,6 +1,7 @@
 export create{{ properCase modelName }}, {
-schema as {{ camelCase modelName }}Schema,
-schemaName as {{ camelCase modelName }}SchemaName,
-} from './{{ modelName }}.model'
+  schema as {{ camelCase modelName }}Schema,
+  schemaName as {{ camelCase modelName }}SchemaName,
+  config as {{ camelCase modelName }}Config,
+} from './models/{{ modelName }}.model'
 
 // Add export here
