@@ -32,6 +32,7 @@
     "koa-socket": "^4.4.0",
     "koa-static": "^2.0.0",
     "koa-unless": "^1.0.0",
+    "mongoose": "^4.5.0",
     "mongoose-mask": "^0.1.2"
   }
 }
