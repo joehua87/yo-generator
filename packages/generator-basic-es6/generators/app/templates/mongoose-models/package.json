@@ -14,7 +14,7 @@
     "mongoose-time-plugin": "^0.1.0"
   },
   "peerDependencies": {
-    "mongoose": "^4.4.19"
+    "mongoose": "^4.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
