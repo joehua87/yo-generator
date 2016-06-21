@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 
-const host = process.env.<%= DB_HOST %> || 'mongodb://localhost/default-db'
+const websiteHost = process.env.DB_HOST || 'mongodb://localhost/default-db'
 
 export const db = {
-  host,
+  host: websiteHost,
   username: '',
   password: ''
 }

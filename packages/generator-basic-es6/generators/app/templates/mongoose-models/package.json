@@ -10,11 +10,9 @@
     "generate": "plop --plopfile generators/index.js"
   },
   "dependencies": {
+    "mongoose": "^4.5.0",
     "mongoose-mask": "^0.1.0",
     "mongoose-time-plugin": "^0.1.0"
-  },
-  "peerDependencies": {
-    "mongoose": "^4.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

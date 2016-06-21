@@ -1,18 +1,18 @@
 import jwt from 'koa-jwt'
 import find from 'lodash/find'
+import { secret } from './config'
 
-const debug = require('debug')('buzz-website-api:controller:auth')
+const debug = require('debug')('<%= appName %>:controller:auth')
 
-const secrets = 'nothing2lose'
 const users = [
   {
     username: 'user',
-    password: 'nothing2lose',
+    password: 'password',
     scopes: ['read']
   },
   {
     username: 'admin',
-    password: 'nothing2lose',
+    password: 'password',
     scopes: ['read', 'write']
   }
 ]
@@ -30,7 +30,7 @@ export function* login() {
 
   debug('Got User:', user)
 
-  const token = jwt.sign({ username, scopes: user.scopes }, secrets)
+  const token = jwt.sign({ username, scopes: user.scopes }, secret)
   debug(token)
   this.status = 200
   this.body = { token }

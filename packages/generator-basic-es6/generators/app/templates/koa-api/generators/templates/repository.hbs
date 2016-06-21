@@ -1,0 +1,8 @@
+import { {{ properCase modelName }} } from '{{ modelPackage }}'
+import { BaseRepository } from 'mongoose-mask'
+
+export default class {{ properCase modelName }}Repository extends BaseRepository {
+  constructor() {
+    super({{ properCase modelName }}.Model, {{ properCase modelName }}.config)
+  }
+}

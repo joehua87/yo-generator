@@ -7,7 +7,8 @@ import koaJson from 'koa-json'
 import koaQs from 'koa-qs'
 import jwt from 'koa-jwt'
 import unless from 'koa-unless'
-import { env } from './config'
+import { env, secret } from './config'
+import { auth, login } from './auth.controllers'
 
 jwt.unless = unless
 
@@ -31,14 +32,17 @@ app.use(koaBodyParser())
 app.use(koaJson())
 koaQs(app, 'extended')
 
-// app.use(jwt({ secret: 'nothing2lose' }).unless({ path: '/login' }))
-// app.use(auth)
+app.use(jwt({ secret }).unless({ path: '/login' }))
+app.use(auth)
 
 // router.post('/upload', upload, uploadFile)
 // app.use(serve(__dirname + '/statics'))
-// router.post('/login', login)
 
 const router = new KoaRouter()
 app.use(router.middleware())
+
+router.post('/login', login)
+
+// Add new route here
 
 export default app

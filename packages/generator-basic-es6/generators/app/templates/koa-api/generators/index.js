@@ -6,7 +6,7 @@ module.exports = (plop) => {
       type: 'input',
       name: 'modelPackage',
       message: 'What is your Models Npm Package?',
-      default: '<%= moduleName %>-models',
+      default: '<%= modelPackageName %>',
       validate(value) {
         if ((/.+/).test(value)) {
           return true

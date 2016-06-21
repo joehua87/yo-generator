@@ -1,3 +1,4 @@
+import mongoose, { Schema } from 'mongoose'
 import timePlugin from 'mongoose-time-plugin'
 import { constants } from 'mongoose-mask'
 
@@ -6,14 +7,12 @@ export const schemaName = '{{ properCase modelName }}'
 export const schemaDefinition = {
 }
 
-export default (mongoose) => {
-  // Use Schema passed from mongoose
-  const schema = new mongoose.Schema(schemaDefinition, { collection: schemaName })
-  schema.plugin(timePlugin)
+const schema = new Schema(schemaDefinition, { collection: schemaName })
+schema.plugin(timePlugin)
 
-  // Add Index here
-  return mongoose.model(schemaName, schema)
-}
+// Add Index here
+
+export const Model = mongoose.model(schemaName, schema)
 
 export const config = {
   key: '_id',
@@ -24,6 +23,6 @@ export const config = {
     // filterField: 'headline',
     // dbField: 'headline',
     // compareType: constants.REG_EX_I,
-    // dbType: constants.STRING
+    // dbType: String
   }],
 }

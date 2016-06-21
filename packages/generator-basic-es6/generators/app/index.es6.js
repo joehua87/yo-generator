@@ -13,7 +13,7 @@ class Generator extends Base {
       {
         type: 'list',
         name: 'template',
-        message: 'What more starter-kit would you like?',
+        message: 'What starter-kit would you like?',
         choices: [{
           name: 'Basic',
           value: 'basic',
@@ -39,8 +39,8 @@ class Generator extends Base {
         store: true
       }, {
         type: 'input',
-        name: 'moduleName',
-        message: 'Module Name?',
+        name: 'modelPackageName',
+        message: 'Your Models Package Name?',
         when: (answers) => answers.template === 'koa-api',
         store: false
       }, {
@@ -52,7 +52,7 @@ class Generator extends Base {
     ]).then((answers) => {
       this.template = answers.template
       this.authorName = answers.authorName
-      this.moduleName = answers.moduleName
+      this.modelPackageName = answers.modelPackageName
       this.installNpm = answers.installNpm
     })
   }
@@ -81,7 +81,10 @@ class Generator extends Base {
     this.fs.copyTpl(
       this.templatePath(`${this.template}/src`),
       this.destinationPath(`${this.appName}/src`),
-      { moduleName: this.moduleName },
+      {
+        appName: this.appName,
+        modelPackageName: this.modelPackageName,
+      },
     )
 
     if (this.template === 'mongoose-models') {
@@ -93,10 +96,18 @@ class Generator extends Base {
 
     if (this.template === 'koa-api') {
       this.fs.copyTpl(
+        this.templatePath(`${this.template}/generators`),
+        this.destinationPath(`${this.appName}/generators`),
+        {
+          modelPackageName: this.modelPackageName,
+        },
+      )
+
+      this.fs.copyTpl(
         this.templatePath(`${this.template}/config.ejs`),
         this.destinationPath(`${this.appName}/src/config.js`),
         {
-          moduleName: this.moduleName,
+          modelPackageName: this.modelPackageName,
           DB_HOST: 'DB_HOST',
         },
       )

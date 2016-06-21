@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import mongoose from 'mongoose'
+import { mongoose } from '<%= modelPackageName %>'
 import { db } from './config'
 import chai from 'chai'
 
