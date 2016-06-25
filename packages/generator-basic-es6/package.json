@@ -1,6 +1,6 @@
 {
   "name": "generator-basic-es6",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "scripts": {
     "build": "babel ./generators/app/index.es6.js --out-file ./generators/app/index.js"
