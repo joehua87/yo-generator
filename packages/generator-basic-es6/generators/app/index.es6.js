@@ -115,8 +115,9 @@ class Generator extends Base {
 
     if (this.template === 'react-view') {
       this.fs.copyTpl(
-        this.templatePath(`${this.template}/server`),
-        this.destinationPath(`${this.appName}/server`),
+        this.templatePath(`${this.template}/.storybook`),
+        this.destinationPath(`${this.appName}/.storybook`),
+        { appName: this.appName },
       )
 
       this.fs.copyTpl(
@@ -128,11 +129,6 @@ class Generator extends Base {
       this.fs.copyTpl(
         this.templatePath(`${this.template}/testHelper.js`),
         this.destinationPath(`${this.appName}/testHelper.js`),
-      )
-
-      this.fs.copyTpl(
-        this.templatePath(`${this.template}/webpack.preview.config.js`),
-        this.destinationPath(`${this.appName}/webpack.preview.config.js`),
       )
     }
   }
